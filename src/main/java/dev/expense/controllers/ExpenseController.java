@@ -28,8 +28,7 @@ public class ExpenseController {
 
 	public void addExpense(ExpenseType expenseType, double amount, String paidBy, List<Split> splits,
 			ExpenseMetadata expenseMetadata) {
-		Expense expense = ExpenseService.createExpense(expenseType, amount, userMap.get(paidBy), splits,
-				expenseMetadata);
+		Expense expense = ExpenseService.createExpense(expenseType, amount, userMap.get(paidBy), splits, expenseMetadata);
 		expenses.add(expense);
 		for (Split split : expense.getSplits()) {
 			String paidTo = split.getUser().getId();
